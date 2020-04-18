@@ -72,8 +72,8 @@ namespace Tamtom.Database.Dapper.Crud
         #endregion
 
         #region Delete
-        public async virtual Task<int> Delete(CrudModels.PrimaryKeyID id) => await ExecuteStoredProcedureFirstOrDefaultAsync<int, int>($"[{schemaName}].APP_SP_DEL_{tableName}", id);
-        public async virtual Task<int> Delete(CrudModels.PrimaryKeyGuid id) => await ExecuteStoredProcedureFirstOrDefaultAsync<Guid, int>($"[{schemaName}].APP_SP_DEL_{tableName}", id);
+        public async virtual Task<int> Delete(CrudBaseModels.PrimaryKeyID id) => await ExecuteStoredProcedureFirstOrDefaultAsync<int, int>($"[{schemaName}].APP_SP_DEL_{tableName}", id);
+        public async virtual Task<int> Delete(CrudBaseModels.PrimaryKeyGuid id) => await ExecuteStoredProcedureFirstOrDefaultAsync<Guid, int>($"[{schemaName}].APP_SP_DEL_{tableName}", id);
         #endregion
 
     }

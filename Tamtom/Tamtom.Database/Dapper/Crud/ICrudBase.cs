@@ -35,8 +35,8 @@ namespace Tamtom.Database.Dapper.Crud
 
         #region Delete
 
-        Task<int> Delete(CrudModels.PrimaryKeyID id);
-        Task<int> Delete(CrudModels.PrimaryKeyGuid id);
+        Task<int> Delete(CrudBaseModels.PrimaryKeyID id);
+        Task<int> Delete(CrudBaseModels.PrimaryKeyGuid id);
 
         #endregion
     }

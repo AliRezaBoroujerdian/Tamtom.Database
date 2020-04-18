@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.0</Version>
+    <Version>3.0.0</Version>
     <Authors>AliRezaBoroujerdian</Authors>
     <Company>Tamtom</Company>
     <Description>generic method for database first project
