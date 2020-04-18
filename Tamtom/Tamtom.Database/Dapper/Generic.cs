@@ -14,6 +14,25 @@ namespace Tamtom.Database.Dapper
     /// </summary>
     public static class Generic
     {
+        #region  Execute without model
+        /// <summary>
+        /// asynchronous - execute procedure with procedure's name and return IEnumerable model
+        /// </summary>
+        /// <typeparam name="ReturnType">the type you want to receive from procedure</typeparam>
+        /// <param name="storedProcedureName">[Schema].StoredProcedureName</param>
+        /// <param name="model">model contain the stored procedure input parameter - data must be stored in property (not field)</param>
+        /// <returns>return the IEnumerable model that you give as return type</returns>
+        public static async Task<IEnumerable<ReturnType>> ExecuteStoredProcedureAsync<ReturnType>(string storedProcedureName)
+        {
+            using IDbConnection dbConnection = new SqlConnection(ConnectionString);
+
+            if (dbConnection.State == ConnectionState.Closed)
+                dbConnection.Open();
+
+            return await dbConnection.QueryAsync<ReturnType>(storedProcedureName, commandType: CommandType.StoredProcedure);
+        }
+        #endregion
+
         #region Execute with one model
         /// <summary>
         /// asynchronous - execute procedure with procedure's name and return first or default model
